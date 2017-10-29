@@ -55,7 +55,7 @@ var apiPaginaLogin = {
                 this.mostrarMensaje('Login y/o password incorrectos');
             } else {
         
-                $.cookie('usuario', data[0].login, {path: '/'});
+                $.cookie('usuario_interdental', data[0].login, {path: '/'});
                 window.open('Index.html', '_self');
             }
         });

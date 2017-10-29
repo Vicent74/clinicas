@@ -6,8 +6,8 @@
                     <meta charset="utf-8">
                     <meta http-equiv="X-UA-Compatible" content="IE=edge">
                     <meta name="viewport" content="width=device-width, initial-scale=1">
-                    <meta name="description" content="">
-                    <meta name="author" content="">
+                    <meta name="description" content="Proyecto daw">
+                    <meta name="author" content="Vicent Ribera">
                 
                     <title>Interdental Web Site</title>
                 
@@ -26,7 +26,10 @@
                     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
                 
                     <!-- jQuery -->
-                    <script src="js/jquery.js"></script>
+                    <script src="js/libs/jquery/jquery-3.2.1.js"></script>
+                    <script src="js/libs/validate/validate.min.js"></script>
+                    <script src="js/libs/validate_locale_es/validate.locale.es.js" type="text/javascript"></script>
+                    
                     <script src="js/libs/jquery/jquery.cookie.js"></script>
 
                     <!--SELECT2-->
@@ -48,8 +51,10 @@
 
         <!-- Navigation -->
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+               
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
+                
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
@@ -59,106 +64,12 @@
                 <a class="navbar-brand" href="index.html"><span class="glyphicon glyphicon-user" id="usuario"></span></a>
             </div>
             <!-- Top Menu Items -->
-            <ul class="nav navbar-right top-nav">
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
-                    <ul class="dropdown-menu message-dropdown">
-                        <li class="message-preview">
-                            <a href="#">
-                                <div class="media">
-                                    <span class="pull-left">
-                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
-                                    </span>
-                                    <div class="media-body">
-                                        <h5 class="media-heading"><strong>John Smith</strong>
-                                        </h5>
-                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
-                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="message-preview">
-                            <a href="#">
-                                <div class="media">
-                                    <span class="pull-left">
-                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
-                                    </span>
-                                    <div class="media-body">
-                                        <h5 class="media-heading"><strong>John Smith</strong>
-                                        </h5>
-                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
-                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="message-preview">
-                            <a href="#">
-                                <div class="media">
-                                    <span class="pull-left">
-                                        <img class="media-object" src="http://placehold.it/50x50" alt="">
-                                    </span>
-                                    <div class="media-body">
-                                        <h5 class="media-heading"><strong>John Smith</strong>
-                                        </h5>
-                                        <p class="small text-muted"><i class="fa fa-clock-o"></i> Yesterday at 4:32 PM</p>
-                                        <p>Lorem ipsum dolor sit amet, consectetur...</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="message-footer">
-                            <a href="#">Read All New Messages</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
-                    <ul class="dropdown-menu alert-dropdown">
-                        <li>
-                            <a href="#">Alert Name <span class="label label-default">Alert Badge</span></a>
-                        </li>
-                        <li>
-                            <a href="#">Alert Name <span class="label label-primary">Alert Badge</span></a>
-                        </li>
-                        <li>
-                            <a href="#">Alert Name <span class="label label-success">Alert Badge</span></a>
-                        </li>
-                        <li>
-                            <a href="#">Alert Name <span class="label label-info">Alert Badge</span></a>
-                        </li>
-                        <li>
-                            <a href="#">Alert Name <span class="label label-warning">Alert Badge</span></a>
-                        </li>
-                        <li>
-                            <a href="#">Alert Name <span class="label label-danger">Alert Badge</span></a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">View All</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> John Smith <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li>
-                            <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
-                        </li>
-                    </ul>
+            <ul  class="nav navbar-right top-nav">
+                <li>
+                    <a href="#"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
                 </li>
             </ul>
+           
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
@@ -199,10 +110,13 @@
                                         <div class="panel panel-success">
                                             <div class="panel-body">
                                                 <div class="row">
-                                                    <div class="col-lg-6 col-md-6">
-                                                        <h1>
+                                                    <div class="col-lg-8 col-md-6 col-sm-4 hidden-xs">
+                                                        <img src="imagenes_optimizadas/photos/logo1.png" alt="interdental" style="border-radius: 10%; width: 100px"/> 
+                                                    </div>
+                                                    <div class="col-lg-4 col-md-6 col-sm-8 col-xs-12">
+                                                        <h2 class="pull-right">
                                                             <i class="fa-fw fa fa-user"></i> <span>Pacientes</span>
-                                                        </h1>
+                                                        </h2>
                                                     </div>
                                                 </div>
                                             </div>
@@ -212,112 +126,111 @@
                                             <form id="pacienteDetalle-form">
                                                 <fieldset>
                                                     <legend>Datos Del Paciente</legend>
-                                                <div class="row">
-                                                <!-- NEW WIDGET START -->
-                
-                                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                                        <label for="dni">DNI/NIE</label><br>
-                                                        <span><input type="text" name="dni" id="dni"  value=""/></span>
-                                                    </div>
-                                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                                        <label for="nombre">Nombre</label><br>
-                                                        <span><input type="text" name="nombre" id="nombre"  value=""/> </span>
-                                                    </div>
-                                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                                            <label for="ape1">Primer Apellido</label><br>
-                                                            <span><input type="text" name="ape1" id="ape1"  value=""/></span>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    
-                                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                                        <label for="ape2">Segundo Apellido</label><br>
-                                                        <span><input type="text" name="ape2" id="ape2"  value=""/> </span>
-                                                    </div>
-                                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                                        <label for="direccion">Direccion</label><br>
-                                                        <span><input type="text" name="direccion" id="direccion"  value=""/> </span>
-                                                    </div>
-                                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                                        <label for="ciudad">Ciudad</label><br>
-                                                        <span><input type="text" name="ciudad" id="ciudad"  value=""/></span>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                        
-                                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                                            <label for="provincia">Provincia</label><br>
-                                                            <span><input type="text" name="provincia" id="provincia"  value=""/> </span>
+                                                        <div class="row">
+                                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                                <label for="dni">DNI/NIE</label><br>
+                                                                <span><input type="text" name="dni" id="dni"  data-bind="value: dni"/></span>
+                                                            </div>
+                                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                                <label for="nombre">Nombre</label><br>
+                                                                <span><input type="text" name="nombre" id="nombre"  data-bind="value: nombre"/> </span>
+                                                            </div>
+                                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                                    <label for="ape1">Primer Apellido</label><br>
+                                                                    <span><input type="text" name="ape1" id="ape1"  data-bind="value: ape1"/></span>
+                                                            </div>
                                                         </div>
-                                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                                            <label for="telefono">Teléfono</label><br>
-                                                            <span><input type="text" name="telefono" id="telefono"  value=""/> </span>
-                                                        </div>
-                                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                                            <label for="movil">Móvil</label><br>
-                                                            <span><input type="text" name="movil" id="movil"  value=""/></span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
+                                                        <div class="row">
                                                             
                                                             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                                                <label for="sexo">Sexo</label><br>
-                                                                <select id="sexo">
-                                                                    <option value="H">Hombre</option>
-                                                                    <option value="M">Mujer</option>
-                                                                </select>
+                                                                <label for="ape2">Segundo Apellido</label><br>
+                                                                <span><input type="text" name="ape2" id="ape2"  data-bind="value: ape2"/> </span>
                                                             </div>
                                                             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                                                <label for="alcohol">alcohol?</label><br>
-                                                                <select id="alcohol">
-                                                                    <option value="si">SI</option>
-                                                                    <option value="no">No</option>
-                                                                    <option value="ocasionalmente">Ocasionalmente</option>
-                                                                </select>
+                                                                <label for="direccion">Direccion</label><br>
+                                                                <span><input type="text" name="direccion" id="direccion"  data-bind="value: direccion"/> </span>
                                                             </div>
                                                             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                                                <label for="fuma">fuma?</label><br>
-                                                                <select id="fuma">
-                                                                    <option value="si">SI</option>
-                                                                    <option value="no">No</option>
-                                                                    <option value="ocasionalmente">Ocasionalmente</option>
-                                                                </select>
+                                                                <label for="ciudad">Ciudad</label><br>
+                                                                <span><input type="text" name="ciudad" id="ciudad"  data-bind="value: ciudad"/></span>
                                                             </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class='col-lg-3 col-md-6 col-sm-6 col-xs-12'>
-                                                            <label for="fecha">Fecha Nacimiento</label><br>
-                                                            <div class="form-group">
-                                                                <div class='input-group date' id='fecha'>
-                                                                    <input type='text' class="form-control" />
-                                                                    <span class="input-group-addon">
-                                                                        <span class="glyphicon glyphicon-calendar"></span>
-                                                                    </span>
+                                                        </div>
+                                                        <div class="row">
+                                                                
+                                                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                                    <label for="provincia">Provincia</label><br>
+                                                                    <span><input type="text" name="provincia" id="provincia"  data-bind="value: provincia"/> </span>
+                                                                </div>
+                                                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                                    <label for="telefono">Teléfono</label><br>
+                                                                    <span><input type="text" name="telefono" id="telefono"  data-bind="value: telefono"/> </span>
+                                                                </div>
+                                                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                                    <label for="movil">Móvil</label><br>
+                                                                    <span><input type="text" name="movil" id="movil"  data-bind="value: movil"/></span>
+                                                                </div>
+                                                        </div>
+                                                            <div class="row">
+                                                                    
+                                                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                                        <label for="sexo">Sexo</label><br>
+                                                                        <select id="sexo" style="width:40%;"  data-bind="options: opcionesSexo, optionsText: 'nombreSexo', 
+                                                                        optionsValue: 'valorSexo', Value: sSexo, valueAllowUnset: true, selectedOptions: selectedSexos, selected2:{}"></select>
+                                                                    </div>
+                                                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                                        <label for="alcohol">alcohol?</label><br>
+                                                                        <select id="alcohol"  style="width:40%;" data-bind="options: opcionesAlcohol, optionsText: 'tomaAlcohol', 
+                                                                        optionsValue: 'valorAlcohol', Value: sAlcohol, valueAllowUnset: true, selectedOptions: selectedAlcohol, selected2:{}"></select>
+                                                                    </div>
+                                                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                                        <label for="fuma">fuma?</label><br>
+                                                                        <select id="fuma" style="width:40%;"  data-bind="options: opcionesFuma, optionsText: 'nombreFuma', 
+                                                                        optionsValue: 'valorFuma', Value: sFuma, valueAllowUnset: true, selectedOptions: selectedFuma, selected2:{}"></select>
+                                                                    </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                                        <label for="email">Email</label><br>
+                                                                        <span><input type="text" name="email" id="email"  data-bind="value: email"/> </span>
+                                                                </div>
+                                                                <div class='col-lg-4 col-md-4 col-sm-4 col-xs-12'>
+                                                                    <label for="fecha">Fecha Nacimiento</label><br>
+                                                                    <div class="form-group">
+                                                                        <div class='input-group date' id='fecha'>
+                                                                            <input type='text' id="fechaNacimiento" name="fechaNacimiento" class="form-control" data-bind="value: fechaNacimiento" />
+                                                                            <span class="input-group-addon">
+                                                                                <span class="glyphicon glyphicon-calendar"></span>
+                                                                            </span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                                    <label for="cmbClinicas">Clinica</label><br>
+                                                                    <select style="width:100%;" id="cmbClinicas" name="cmbClinicas" data-bind="options: optionsClinicas, optionsText: 'nombre', optionsValue: 'cif', 
+                                                                    value: sClinica, valueAllowUnset: true, selectedOptions: selectedClinicas, selected2:{}">
+                                                                    </select>
                                                                 </div>
                                                             </div>
+                                                </fieldset>
+                                                    <fieldset>
+                                                        <div class="pull-right">
+                                                            <button id="btnSalir" title="salir" class="btn btn-warning btn-lg">
+                                                                <i class="fa fa-lg fa-sign-out"></i>
+                                                            </button>
+                                                            <button id="btnAceptar" title="aceptar" class="btn btn-success btn-lg">
+                                                                <i class="fa fa-lg fa-check"></i>
+                                                            </button>
                                                         </div>
-                                                        
-                                                        <div class="col-lg-5 col-md-4 col-sm-4 col-xs-12">
-                                                                
-                                                        </div>
-                                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                                            <label for="cif">Clinica</label><br>
-                                                            <select id="cif">
-                                                                    
-                                                            </select>
-                                                        </div>
-                                                        
-                                                    </div>
                                                     </fieldset>
-                                                </form>
+                                            </form>
                                                 
                                                 
-                                                </script>
-                                            </div>
-                                        </section>
+                                        </section>       
                                     </div>
+                                        
                                 </div>
                             </div>
+        </div>
                             <!-- /.container-fluid -->
                 
                         <!-- /#page-wrapper -->
@@ -341,7 +254,7 @@
      <script src="js/bootstrap.min.js"></script>
     
     <!--DATETIMEPICKER-->
-    <script src="moment-develop/min/moment.min.js"></script>
+    <script  type="text/javascript" src="js/libs/moment-develop/min/moment.min.js"></script>
     <script src="js/libs/datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
     <script src="js/libs/datetimepicker/js/locales/bootstrap-datetimepicker.es.js"></script>
     <link rel="stylesheet" type="text/css" href="js/libs/datetimepicker/css/bootstrap-datetimepicker.min.css">
@@ -349,14 +262,14 @@
    
 
     <!-- DATATABLES-->
-    <script src="datatables/jquery.dataTables.min.js"></script>
-    <script src="datatables/dataTables.colVis.min.js"></script>
-    <script src="datatables/dataTables.tableTools.min.js"></script>
-    <script src="datatables/dataTables.bootstrap.min.js"></script>
-    <script src="datatable-responsive/datatables.responsive.min.js"></script>
+    <script src="js/libs/datatables/jquery.dataTables.min.js"></script>
+    <script src="js/libs/datatables/dataTables.colVis.min.js"></script>
+    <script src="js/libs/datatables/dataTables.tableTools.min.js"></script>
+    <script src="js/libs/datatables/dataTables.bootstrap.min.js"></script>
+    <script src="js/libs/datatable-responsive/datatables.responsive.min.js"></script>
 
     <!--KNOCKOUT-->
-    <scrip src="js/libs/nokout/knocout-3.4.2.js"></scrip>
+    <script type="text/javascript" src="js/libs/nokout/knocout-3.4.2.js"></script>
 
     <!--librerias generales-->
     <script src="js/comun/comun.ajax.js"></script>
@@ -373,9 +286,9 @@
 			apiPacientesDetalle.ini();
 		});
     </script>
+</body>
 
-    </body>
-    
+   
     
 
 </html>

@@ -2,8 +2,8 @@
 
 var apiPaginaIndex = {
     ini: function(){
-        if (!$.cookie('usuario')) window.open('login.html', '_self');
-        var usuario = $.cookie('usuario');
+        if (!$.cookie('usuario_interdental')) window.open('login.html', '_self');
+        var usuario = $.cookie('usuario_interdental');
         $('#usuario').text(' '+usuario);
         $('#index').attr('class', 'active');
     }

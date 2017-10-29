@@ -52,7 +52,7 @@ var apiComunGeneral = {
                         "oSelectorOpts": { filter: 'applied', order: 'current' }
                     }
                 ],
-                "sSwfPath": "datatables/swf/copy_csv_xls_pdf.swf"
+                "sSwfPath": "js/libs/datatables/swf/copy_csv_xls_pdf.swf"
             },
             "autoWidth": true,
             "preDrawCallback": function () {
