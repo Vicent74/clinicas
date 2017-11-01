@@ -1,11 +1,11 @@
 var vm;
-var pacientes;
+var empleado;
 var id;
 var copiaDni;
 var copiaCifClinica;
 var cadena = location.href;
 
-var apiPacientesDetalle = {
+var apiEmpleadosDetalle = {
     ini: function() {
         var usuario = $.cookie('usuario_interdental');
         $('#usuario').text(' '+usuario);
@@ -13,36 +13,34 @@ var apiPacientesDetalle = {
             format: 'dd-mm-yyyy',
             language: 'es'
         });
-        $('#fuma').select2();
-        $('#alcohol').select2();
-        $('#sexo').select2();
+       
         $('#cmbClinicas').select2();
 
         var indice = cadena.indexOf('id');
         id = cadena.substr(indice+3,);
 
-        vm = new apiPacientesDetalle.datosPagina();
+        vm = new  apiEmpleadosDetalle.datosPagina();
         ko.applyBindings(vm);
 
-        apiPacientesDetalle.loadComboClinicas();
+         apiEmpleadosDetalle.loadComboClinicas();
 
-        $('#pacienteDetalle-form').submit(function () { return false; });
-        $('#btnAceptar').click(apiPacientesDetalle.aceptar);
+        $('#empleadoDetalle-form').submit(function () { return false; });
+        $('#btnAceptar').click( apiEmpleadosDetalle.aceptar);
 
         if (id != 0){
             $('#dni').attr('readonly', 'readonly');
-            apiPacientesDetalle.cargarPaciente(id);
+             apiEmpleadosDetalle.cargarempleado(id);
         }
     },
 
-    loadComboClinicas: function(paciente) {
+    loadComboClinicas: function(empleado) {
         var url = '/api/clinicas';
         apiComunAjax.llamadaGeneral('GET', url, null, function(err, data){
             if (err) return;
-            if(paciente != undefined){
+            if(empleado != undefined){
                 var options = [{ cif: "", nombre: "" }].concat(data);
                 vm.optionsClinicas(options);
-                $("#cmbClinicas option[value="+paciente.cifClinica+"]").attr("selected",true).trigger('change');
+                $("#cmbClinicas option[value="+empleado.cifClinica+"]").attr("selected",true).trigger('change');
             }else{
                 var options = [{ cif: "", nombre: "" }].concat(data);
                 vm.optionsClinicas(options);
@@ -51,30 +49,25 @@ var apiPacientesDetalle = {
         });
     },
 
-    loadCombos: function(paciente){
-        $("#sexo option[value="+ paciente.sexo+"]").attr("selected",true).trigger('change');
-        $("#fuma option[value="+ paciente.fuma+"]").attr("selected",true).trigger('change');
-        $("#alcohol option[value="+ paciente.alcohol+"]").attr("selected",true).trigger('change');
-        
-    },
-
-    cargarDatosPagina: function(paciente){
-            copiaDni = paciente.dni;
-            copiaCifClinica = paciente.cifClinica;
-            id = paciente.id;
-            vm.dni(paciente.dni);
-            vm.nombre(paciente.nombre);
-            vm.ape1(paciente.apellido1);
-            vm.ape2(paciente.apellido2);
-            vm.direccion(paciente.direccion);
-            vm.ciudad(paciente.ciudad);
-            vm.provincia(paciente.provincia);
-            vm.telefono(paciente.telefono);
-            vm.movil(paciente.movil);
-            vm.email(paciente.email);
-            vm.fechaNacimiento(moment(paciente.fechaNacimiento).format('DD-MM-YYYY'));
-            apiPacientesDetalle.loadCombos(paciente);
-            apiPacientesDetalle.loadComboClinicas(paciente);
+    
+    cargarDatosPagina: function(empleado){
+            copiaDni = empleado.dni;
+            copiaCifClinica = empleado.cifClinica;
+            id = empleado.id;
+            vm.dni(empleado.dni);
+            vm.nombre(empleado.nombre);
+            vm.ape1(empleado.apellido1);
+            vm.ape2(empleado.apellido2);
+            vm.direccion(empleado.direccion);
+            vm.ciudad(empleado.ciudad);
+            vm.provincia(empleado.provincia);
+            vm.telefono(empleado.telefono);
+            vm.movil(empleado.movil);
+            vm.email(empleado.email);
+            vm.numCol(empleado.numeroColegiado);
+            vm.puesto(empleado.puesto);
+            vm.fechaNacimiento(moment(empleado.fechaNacimiento).format('DD-MM-YYYY'));
+            apiEmpleadosDetalle.loadComboClinicas(empleado);
     },
 
     datosPagina: function() {
@@ -90,80 +83,22 @@ var apiPacientesDetalle = {
         self.movil = ko.observable();
         self.fechaNacimiento = ko.observable();
         self.email = ko.observable();
-
-        self.opcionesSexo = ko.observableArray([
-            {
-                'nombreSexo': ' ',
-                'valorSexo': ' '
-            }, 
-            {
-                'nombreSexo': 'Hombre',
-                'valorSexo': 'H'
-            }, 
-            {
-                'nombreSexo': 'Mujer',
-                'valorSexo': 'M'
-            }
-        ]);
-        self.selectedSexos = ko.observableArray([]);
-        self.sSexo = ko.observable()
-
-        self.opcionesAlcohol = ko.observableArray([
-            {
-                'tomaAlcohol': ' ',
-                'valorAlcohol': ' '
-            }, 
-            {
-                'tomaAlcohol': 'Si',
-                'valorAlcohol': 'si'
-            }, 
-            {
-                'tomaAlcohol': 'No',
-                'valorAlcohol': 'no'
-            }, 
-            {
-                'tomaAlcohol': 'Ocasionalmente',
-                'valorAlcohol': 'ocasionalmente'
-            }
-        ]);
-        self.selectedAlcohol = ko.observableArray([]);
-        self.sAlcohol = ko.observable();
-
-        self.opcionesFuma = ko.observableArray([
-            {
-                'nombreFuma': ' ',
-                'valorFuma': ' '
-            }, 
-            {
-                'nombreFuma': 'Si',
-                'valorFuma': 'si'
-            }, 
-            {
-                'nombreFuma': 'No',
-                'valorFuma': 'no'
-            }, 
-            {
-                'nombreFuma': 'Ocasionalmente',
-                'valorFuma': 'ocasionalmente'
-            }
-        ]);
-        self.selectedFuma = ko.observableArray([]);
-        self.sFuma = ko.observable();
-
+        self.numCol = ko.observable();
+        self.puesto = ko.observable();
         self.optionsClinicas = ko.observableArray([]);
         self.selectedClinicas = ko.observableArray([]);
         self.sClinica = ko.observable();
     },
 
-    cargarPaciente: function(id){
-        apiComunAjax.llamadaGeneral("GET", "/api/pacientes/"+id, null, function(err, data){
+    cargarempleado: function(id){
+        apiComunAjax.llamadaGeneral("GET", "/api/trabajadores/"+id, null, function(err, data){
             if (err) return;
-            apiPacientesDetalle.cargarDatosPagina(data[0]);
+             apiEmpleadosDetalle.cargarDatosPagina(data[0]);
         });
     },
 
     aceptar: function(){
-        if (!apiPacientesDetalle.datosOK()) return;
+        if (! apiEmpleadosDetalle.datosOK()) return;
         var data = {
             id: id,
             dni: vm.dni(),
@@ -175,15 +110,14 @@ var apiPacientesDetalle = {
             provincia: vm.provincia(),
             telefono: vm.telefono(),
             movil: vm.movil(),
-            sexo: vm.selectedSexos(),
+            numeroColegiado: vm.numCol(),
+            puesto: vm.puesto(),
             fechaNacimiento: moment(vm.fechaNacimiento()).format('YYYY-MM-DD'),
-            alcohol: vm.selectedAlcohol(),
-            fuma: vm.selectedFuma(),
             cifClinica: vm.sClinica()
         }
         var verbo = "POST"
         if (vm.dni() == copiaDni) verbo = "PUT";
-        apiComunAjax.llamadaGeneral(verbo, "api/pacientes", data, function(err, data){
+        apiComunAjax.llamadaGeneral(verbo, "api/trabajadores", data, function(err, data){
             if (err) return;
             alert('exito');
         });
@@ -207,7 +141,7 @@ var apiPacientesDetalle = {
             return this.optional(element) ||  /^[a-zA-Z0-9\._-]+@[a-zA-Z0-9-]{2,}[.][a-zA-Z]{2,4}$/.test(value);
         });
 
-        $('#pacienteDetalle-form').validate({
+        $('#empleadoDetalle-form').validate({
             rules: {
                 cmbClinicas: { required: true },
                 fechaNacimiento: { required: true, date: true },
@@ -218,23 +152,25 @@ var apiPacientesDetalle = {
                 ciudad: { required: true },
                 provincia: { required: true },
                 telefono: { required: true, telefono: true },
+                movil: { movil: true },
                 email: { email: true },
-                sexo: { required: true}
+                numCol: { required: true, digits: true, minlength: 8, maxlength: 8},
+                puesto: { required: true }
             },
             messages: {
                 dni:'formato DNI/NIE incorrecto',
                 telefono: 'Introduzca un numero fijo o movil valido',
-                telefono: 'Introduzca un numero de movil valido',
+                movil: 'Introduzca un numero de movil valido',
                 email: 'Introduzca un Email valido'
             },
             errorPlacement: function (error, element) {
                 error.insertAfter(element.parent());
             }
         });
-        return $('#pacienteDetalle-form').valid();
+        return $('#empleadoDetalle-form').valid();
     },
 
     salir: function(){
-        window.open('pacientesGeneral.html', '_self');
+        window.open('empleadosGeneral.html', '_self');
     }
 }

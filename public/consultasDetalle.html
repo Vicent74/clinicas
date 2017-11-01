@@ -88,7 +88,7 @@
                               <a href="empleadosGeneral.html">Empleados</a>
                             </li>
                             <li>
-                                <a href="consultasGeneral.html">Citas</a>
+                                <a href="citasGeneral.html">Citas</a>
                             </li>
                         </ul>
                      </li>       
@@ -119,7 +119,7 @@
                                                     </div>
                                                     <div class="col-lg-4 col-md-6 col-sm-8 col-xs-12">
                                                         <h2 class="pull-right">
-                                                            <i class="fa-fw fa fa-user"></i> <span>Pacientes</span>
+                                                            <i class="fa-fw fa fa-user"></i> <span>Consultas</span>
                                                         </h2>
                                                     </div>
                                                 </div>
@@ -127,105 +127,72 @@
                                         </div>
                                         
                                         <section style="padding-left: 10%;">
-                                            <form id="pacienteDetalle-form">
+                                            <form id="consultaDetalle-form">
                                                 <fieldset>
-                                                    <legend>Datos Del Paciente</legend>
+                                                    <legend>Datos De la consulta</legend>
                                                         <div class="row">
                                                             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                                                <label for="dni">DNI/NIE</label><br>
-                                                                <span><input type="text" name="dni" id="dni"  data-bind="value: dni"/></span>
+                                                                <label for="cmbEstados">Paciente</label><br>
+                                                                <select style="width:100%;" id="cmbEstados" name="cmbEstados" data-bind="options: optionsEstados, optionsText: 'nombreEstado', optionsValue: 'valorEstado', 
+                                                                value: sEstado, valueAllowUnset: true, selectedOptions: selectedEstados, selected2:{}">
+                                                                </select>
+                                                            </div>
+
+                                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                                                <label for="cmbPacientes">Paciente</label><br>
+                                                                <select style="width:100%;" id="cmbPacientes" name="cmbPacientes" data-bind="options: optionsPacientes, optionsText: 'paciente', optionsValue: 'dni', 
+                                                                value: sPaciente, valueAllowUnset: true, selectedOptions: selectedPacientes, selected2:{}">
+                                                                </select>
                                                             </div>
                                                             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                                                <label for="nombre">Nombre</label><br>
-                                                                <span><input type="text" name="nombre" id="nombre"  data-bind="value: nombre"/> </span>
+                                                                <label for="cmbEmpleados">Empleado</label><br>
+                                                                <select style="width:100%;" id="cmbEmpleados" name="cmbEmpleados" data-bind="options: optionsEmpleados, optionsText: 'empleado', optionsValue: 'dni', 
+                                                                value: sEmpleado, valueAllowUnset: true, selectedOptions: selectedEmpleados, selected2:{}">
+                                                                </select>
                                                             </div>
-                                                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                                                    <label for="ape1">Primer Apellido</label><br>
-                                                                    <span><input type="text" name="ape1" id="ape1"  data-bind="value: ape1"/></span>
+                                                    
+                                                        </div>
+
+                                                        <div class="row">
+                                                            <div class='col-lg-4 col-md-4 col-sm-4 col-xs-12'>
+                                                                <label for="fecha">Fecha Consulta</label><br>
+                                                                <div class="form-group">
+                                                                    <div class='input-group date' id='fecha'>
+                                                                        <input type='text' id="fechaConsulta" name="fechaConsulta" class="form-control" data-bind="value: fechaConsulta" />
+                                                                        <span class="input-group-addon">
+                                                                            <span class="glyphicon glyphicon-calendar"></span>
+                                                                        </span>
+                                                                    </div>
+                                                               </div>
                                                             </div>
                                                         </div>
+                                                        
                                                         <div class="row">
-                                                            
                                                             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                                                <label for="ape2">Segundo Apellido</label><br>
-                                                                <span><input type="text" name="ape2" id="ape2"  data-bind="value: ape2"/> </span>
+                                                                <label for="sintomas">Sintomas</label><br>
+                                                                <span><textarea name="sintomas" id="sintomas"  class="form-control" rows="10"  data-bind="value: sintomas"></textarea> </span>
                                                             </div>
                                                             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                                                <label for="direccion">Direccion</label><br>
-                                                                <span><input type="text" name="direccion" id="direccion"  data-bind="value: direccion"/> </span>
+                                                                <label for="diagnostico">Diagnostico</label><br>
+                                                                <span><textarea name="diagnostico" id="diagnostico"  class="form-control" rows="10" data-bind="value: diagnostico"></textarea></span>
                                                             </div>
                                                             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                                                <label for="ciudad">Ciudad</label><br>
-                                                                <span><input type="text" name="ciudad" id="ciudad"  data-bind="value: ciudad"/></span>
+                                                                <label for="tratamiento">Tratamiento</label><br>
+                                                                <span><textarea name="tratamiento" id="tratamiento"  class="form-control" rows="10" data-bind="value: tratamiento"></textarea> </span>
                                                             </div>
-                                                        </div>
-                                                        <div class="row">
                                                                 
-                                                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                                                    <label for="provincia">Provincia</label><br>
-                                                                    <span><input type="text" name="provincia" id="provincia"  data-bind="value: provincia"/> </span>
-                                                                </div>
-                                                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                                                    <label for="telefono">Teléfono</label><br>
-                                                                    <span><input type="text" name="telefono" id="telefono"  data-bind="value: telefono"/> </span>
-                                                                </div>
-                                                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                                                    <label for="movil">Móvil</label><br>
-                                                                    <span><input type="text" name="movil" id="movil"  data-bind="value: movil"/></span>
-                                                                </div>
                                                         </div>
-                                                            <div class="row">
-                                                                    
-                                                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                                                        <label for="sexo">Sexo</label><br>
-                                                                        <select id="sexo" style="width:40%;"  data-bind="options: opcionesSexo, optionsText: 'nombreSexo', 
-                                                                        optionsValue: 'valorSexo', Value: sSexo, valueAllowUnset: true, selectedOptions: selectedSexos, selected2:{}"></select>
-                                                                    </div>
-                                                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                                                        <label for="alcohol">alcohol?</label><br>
-                                                                        <select id="alcohol"  style="width:40%;" data-bind="options: opcionesAlcohol, optionsText: 'tomaAlcohol', 
-                                                                        optionsValue: 'valorAlcohol', Value: sAlcohol, valueAllowUnset: true, selectedOptions: selectedAlcohol, selected2:{}"></select>
-                                                                    </div>
-                                                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                                                        <label for="fuma">fuma?</label><br>
-                                                                        <select id="fuma" style="width:40%;"  data-bind="options: opcionesFuma, optionsText: 'nombreFuma', 
-                                                                        optionsValue: 'valorFuma', Value: sFuma, valueAllowUnset: true, selectedOptions: selectedFuma, selected2:{}"></select>
-                                                                    </div>
-                                                            </div>
-                                                            <div class="row">
-                                                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                                                        <label for="email">Email</label><br>
-                                                                        <span><input type="text" name="email" id="email"  data-bind="value: email"/> </span>
-                                                                </div>
-                                                                <div class='col-lg-4 col-md-4 col-sm-4 col-xs-12'>
-                                                                    <label for="fecha">Fecha Nacimiento</label><br>
-                                                                    <div class="form-group">
-                                                                        <div class='input-group date' id='fecha'>
-                                                                            <input type='text' id="fechaNacimiento" name="fechaNacimiento" class="form-control" data-bind="value: fechaNacimiento" />
-                                                                            <span class="input-group-addon">
-                                                                                <span class="glyphicon glyphicon-calendar"></span>
-                                                                            </span>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                                                    <label for="cmbClinicas">Clinica</label><br>
-                                                                    <select style="width:100%;" id="cmbClinicas" name="cmbClinicas" data-bind="options: optionsClinicas, optionsText: 'nombre', optionsValue: 'cif', 
-                                                                    value: sClinica, valueAllowUnset: true, selectedOptions: selectedClinicas, selected2:{}">
-                                                                    </select>
-                                                                </div>
-                                                            </div>
                                                 </fieldset>
-                                                    <fieldset>
-                                                        <div class="pull-right">
-                                                            <button id="btnSalir" title="salir" class="btn btn-warning btn-lg">
-                                                                <i class="fa fa-lg fa-sign-out"></i>
-                                                            </button>
-                                                            <button id="btnAceptar" title="aceptar" class="btn btn-success btn-lg">
-                                                                <i class="fa fa-lg fa-check"></i>
-                                                            </button>
+                                                <fieldset>
+                                                    <div class="pull-right">
+                                                        <button id="btnSalir" title="salir" class="btn btn-warning btn-lg">
+                                                            <i class="fa fa-lg fa-sign-out"></i>
+                                                        </button>
+                                                        <button id="btnAceptar" title="aceptar" class="btn btn-success btn-lg">
+                                                            <i class="fa fa-lg fa-check"></i>
+                                                        </button>
                                                         </div>
-                                                    </fieldset>
+                                                </fieldset>
                                             </form>
                                                 
                                                 
@@ -249,7 +216,7 @@
                                     </div>
                                 </div>
                         </footer>
-        </div>
+        
                     
     </div> 
     <!-- /#wrapper -->
@@ -284,10 +251,10 @@
     
 
 	<!--Librerias de la página-->
-	<script src="js/app/pacientesDetalle.js"></script>
+	<script src="js/app/consultasDetalle.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
-			apiPacientesDetalle.ini();
+			apiConsultasDetalle.ini();
 		});
     </script>
 </body>
