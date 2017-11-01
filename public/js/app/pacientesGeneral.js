@@ -8,7 +8,7 @@ var apiPacientesGeneral = {
         
         var usuario = $.cookie('usuario_interdental');
         $('#usuario').text(' '+usuario);
-        $('#pacientes').attr('class', 'active');
+        $('#pacientes > a > i').attr('class', 'fa fa-chevron-left');
         $('#pacientes-form').submit(function () { return false; });
         $('#btnNuevo').click(apiPacientesGeneral.nuevo);
         apiComunAjax.llamadaGeneral(verbo, url, datos, function(err, data){

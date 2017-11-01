@@ -9,6 +9,7 @@ var apiPacientesDetalle = {
     ini: function() {
         var usuario = $.cookie('usuario_interdental');
         $('#usuario').text(' '+usuario);
+        $('#pacientes > a > i').attr('class', 'fa fa-chevron-left');
         $("#fecha").datetimepicker({
             format: 'dd-mm-yyyy',
             language: 'es'

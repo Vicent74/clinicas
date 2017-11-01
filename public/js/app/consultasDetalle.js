@@ -11,6 +11,7 @@ var apiConsultasDetalle = {
     ini: function() {
         var usuario = $.cookie('usuario_interdental');
         $('#usuario').text(' '+usuario);
+        $('#consultas > a > i').attr('class', 'fa fa-chevron-left');
         $("#fecha").datetimepicker({
             format: 'dd-mm-yyyy',
             language: 'es'

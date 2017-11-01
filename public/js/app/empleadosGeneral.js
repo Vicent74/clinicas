@@ -8,7 +8,7 @@ var apiEmpleadosGeneral = {
         
         var usuario = $.cookie('usuario_interdental');
         $('#usuario').text(' '+usuario);
-        $('#empleados').attr('class', 'active');
+        $('#empleados > a > i').attr('class', 'fa fa-chevron-left');
         $('#empleados-form').submit(function () { return false; });
         $('#btnNuevo').click(apiEmpleadosGeneral.nuevo);
         apiComunAjax.llamadaGeneral(verbo, url, datos, function(err, data){

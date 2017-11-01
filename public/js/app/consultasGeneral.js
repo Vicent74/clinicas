@@ -8,6 +8,7 @@ var apiConsultasGeneral = {
         
         var usuario = $.cookie('usuario_interdental');
         $('#usuario').text(' '+usuario);
+        $('#consultas > a > i').attr('class', 'fa fa-chevron-left');
         $('#consultas-form').submit(function () { return false; });
         $('#btnNuevo').click(apiConsultasGeneral.nuevo);
         apiComunAjax.llamadaGeneral(verbo, url, datos, function(err, data){

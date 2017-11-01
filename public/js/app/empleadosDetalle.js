@@ -9,6 +9,7 @@ var apiEmpleadosDetalle = {
     ini: function() {
         var usuario = $.cookie('usuario_interdental');
         $('#usuario').text(' '+usuario);
+        $('#empleados > a > i').attr('class', 'fa fa-chevron-left');
         $("#fecha").datetimepicker({
             format: 'dd-mm-yyyy',
             language: 'es'
