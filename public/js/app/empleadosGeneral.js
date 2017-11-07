@@ -61,6 +61,13 @@ var apiEmpleadosGeneral = {
 
     editar: function(id){
         window.open(sprintf('empleadosDetalle.html?id=%s', id), '_self');
+    },
+
+    eliminar: function(id){
+        apiComunAjax.llamadaGeneral("DELETE", "api/trabajadores/"+id, null, function(err, data){
+            if (err)    apiComunNotificaciones.errorAjax(err);
+            location.reload(true);
+        });
     }
    
 }

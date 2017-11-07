@@ -13,7 +13,7 @@ var apiConsultasDetalle = {
         $('#usuario').text(' '+usuario);
         $('#consultas > a > i').attr('class', 'fa fa-chevron-left');
         $("#fecha").datetimepicker({
-            format: 'dd-mm-yyyy',
+            format: 'dd-mm-yyyy hh:mm:ss',
             language: 'es'
         });
         $('#cmbEstados').select2();
@@ -31,6 +31,7 @@ var apiConsultasDetalle = {
 
         $('#consultaDetalle-form').submit(function () { return false; });
         $('#btnAceptar').click(apiConsultasDetalle.aceptar);
+        $('#btnSalir').click(apiConsultasDetalle.salir);
 
         if (id != 0){
             $('#dni').attr('readonly', 'readonly');
@@ -81,7 +82,7 @@ var apiConsultasDetalle = {
             vm.sintomas(consulta.sintomas);
             vm.diagnostico(consulta.diagnostico);
             vm.tratamiento(consulta.tratamiento);
-            vm.fechaConsulta(moment(consulta.fecha).format('DD-MM-YYYY hh:mm'));
+            vm.fechaConsulta(moment(consulta.fecha).format('DD-MM-YYYY hh:mm:ss'));
             apiConsultasDetalle.loadComboEmpleados(consulta);
             apiConsultasDetalle.loadComboPacientes(consulta);
             apiConsultasDetalle.loadComboEstado(consulta);
@@ -135,7 +136,7 @@ var apiConsultasDetalle = {
             estado: vm.sEstado(),
             dniPaciente: vm.sPaciente(),
             dniEspecialista: vm.sEmpleado(),
-            fecha: moment(vm.fechaConsulta()).format('YYYY-MM-DD hh:mm'),
+            fecha: moment(vm.fechaConsulta()).format('YYYY-MM-DD hh:mm:ss'),
             sintomas: vm.sintomas(),
             diagnostico: vm.diagnostico(),
             tratamiento: vm.tratamiento()
@@ -155,7 +156,7 @@ var apiConsultasDetalle = {
                 cmbEstados: { required: true },
                 cmbPacientes: { required: true },
                 cmbEmpleados: { required: true },
-                fecha: { required: true, date: true },
+                fechaConsulta: { required: true, date: true },
             },
             errorPlacement: function (error, element) {
                 error.insertAfter(element.parent());

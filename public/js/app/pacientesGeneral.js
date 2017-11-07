@@ -61,6 +61,14 @@ var apiPacientesGeneral = {
 
     editar: function(id){
         window.open(sprintf('pacientesDetalle.html?id=%s', id), '_self');
+    },
+
+    eliminar: function(id){
+        apiComunAjax.llamadaGeneral("DELETE", "api/pacientes/"+id, null, function(err, data){
+            if (err) apiComunNotificaciones.errorAjax(err);
+            location.reload(true);
+
+        });
     }
    
 }

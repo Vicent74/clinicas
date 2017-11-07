@@ -197,7 +197,7 @@
                                                                     <label for="fecha">Fecha Nacimiento</label><br>
                                                                     <div class="form-group">
                                                                         <div class='input-group date' id='fecha'>
-                                                                            <input type='text' id="fechaNacimiento" name="fechaNacimiento" class="form-control" data-bind="value: fechaNacimiento" />
+                                                                            <span><input type='text' id="fechaNacimiento" name="fechaNacimiento" class="form-control" data-bind="value: fechaNacimiento" /></span>
                                                                             <span class="input-group-addon">
                                                                                 <span class="glyphicon glyphicon-calendar"></span>
                                                                             </span>
@@ -206,9 +206,9 @@
                                                                 </div>
                                                                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                                                     <label for="cmbClinicas">Clinica</label><br>
-                                                                    <select style="width:100%;" id="cmbClinicas" name="cmbClinicas" data-bind="options: optionsClinicas, optionsText: 'nombre', optionsValue: 'cif', 
+                                                                    <span><select style="width:100%;" id="cmbClinicas" name="cmbClinicas" data-bind="options: optionsClinicas, optionsText: 'nombre', optionsValue: 'cif', 
                                                                     value: sClinica, valueAllowUnset: true, selectedOptions: selectedClinicas, selected2:{}">
-                                                                    </select>
+                                                                    </select></span>
                                                                 </div>
                                                             </div>
                                                 </fieldset>

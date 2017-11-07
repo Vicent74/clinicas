@@ -15,7 +15,7 @@ var apiComunGeneral = {
     
     initTableOptions: function (table) {
         var options = {
-            "sDom": "<'dt-toolbar row'<'col-lg-12 col-sm-12 col-xs-12 hidden-xs' <'pull-right' l > <'col-lg-4 col-sm-8 col-xs-12 hidden-xs'  T >>r>" +
+            "sDom": "<'dt-toolbar'<'col-xs-12 col-sm-12-col-lg-12'f><'col-sm-6 col-xs-12 hidden-xs'l C T >r>" +
             "t" +
             "<'dt-toolbar-footer'<'col-sm-6 col-xs-12 hidden-xs'i><'col-xs-12 col-sm-6'p>>",
             "oColVis": {

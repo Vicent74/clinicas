@@ -62,6 +62,15 @@ var apiConsultasGeneral = {
 
     editar: function(id){
         window.open(sprintf('consultasDetalle.html?id=%s', id), '_self');
+    },
+
+    eliminar: function(id){
+        apiComunAjax.llamadaGeneral("DELETE", "api/consultas/"+id, null, function(err, data){
+            if (err) apiComunNotificaciones.errorAjax(err);
+            location.reload(true);
+            
+        });
     }
+   
    
 }

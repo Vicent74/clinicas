@@ -29,6 +29,7 @@ var apiPacientesDetalle = {
 
         $('#pacienteDetalle-form').submit(function () { return false; });
         $('#btnAceptar').click(apiPacientesDetalle.aceptar);
+        $('#btnSalir').click(apiPacientesDetalle.salir);
 
         if (id != 0){
             $('#dni').attr('readonly', 'readonly');

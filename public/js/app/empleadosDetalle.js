@@ -27,6 +27,7 @@ var apiEmpleadosDetalle = {
 
         $('#empleadoDetalle-form').submit(function () { return false; });
         $('#btnAceptar').click( apiEmpleadosDetalle.aceptar);
+        $('#btnSalir').click(apiEmpleadosDetalle.salir);
 
         if (id != 0){
             $('#dni').attr('readonly', 'readonly');
