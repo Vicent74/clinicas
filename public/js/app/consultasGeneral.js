@@ -12,13 +12,11 @@ var apiConsultasGeneral = {
         $('#consultas-form').submit(function () { return false; });
         $('#btnNuevo').click(apiConsultasGeneral.nuevo);
         apiComunAjax.llamadaGeneral(verbo, url, datos, function(err, data){
-            if (err) {
-                apiComunNotificaciones.errorAjax(err);
-            }else{
-                data[0].fecha = moment(data[0].fecha).format('DD-MM-YYYY hh:mm');
-                apiConsultasGeneral.iniconsultasTabla();
-                apiConsultasGeneral. cargaTablaConsultas(data);
-            }
+            if (err) return;
+            data[0].fecha = moment(data[0].fecha).format('DD-MM-YYYY hh:mm');
+            apiConsultasGeneral.iniconsultasTabla();
+            apiConsultasGeneral. cargaTablaConsultas(data);
+            
         });//lamada ajax que devuelve los consultas existentes, un error si este se produce y si no carga los consultas en tabla
     },
 
@@ -66,7 +64,7 @@ var apiConsultasGeneral = {
 
     eliminar: function(id){
         apiComunAjax.llamadaGeneral("DELETE", "api/consultas/"+id, null, function(err, data){
-            if (err) apiComunNotificaciones.errorAjax(err);
+            if (err);
             location.reload(true);
             
         });

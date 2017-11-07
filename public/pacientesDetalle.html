@@ -36,6 +36,10 @@
                     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/css/select2.min.css" rel="stylesheet" />
                     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/js/select2.min.js"></script>
 
+                     <!--MENSAJES-->
+                    <script src="js/libs/message-master/codebase/message.js" type="text/javascript"></script>
+            
+
                     <!--Estilo propio-->
                     <link href="css/estilo.css" rel="stylesheet">
 
@@ -181,18 +185,18 @@
                                                                     
                                                                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                                                         <label for="sexo">Sexo</label><br>
-                                                                        <select id="sexo" style="width:40%;"  data-bind="options: opcionesSexo, optionsText: 'nombreSexo', 
-                                                                        optionsValue: 'valorSexo', Value: sSexo, valueAllowUnset: true, selectedOptions: selectedSexos, selected2:{}"></select>
+                                                                        <span><select id="sexo" name="sexo" style="width:40%;"  data-bind="options: opcionesSexo, optionsText: 'nombreSexo', 
+                                                                        optionsValue: 'valorSexo', Value: sSexo, valueAllowUnset: true, selectedOptions: selectedSexos, selected2:{}"></select></span>
                                                                     </div>
                                                                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                                                         <label for="alcohol">alcohol?</label><br>
-                                                                        <select id="alcohol"  style="width:40%;" data-bind="options: opcionesAlcohol, optionsText: 'tomaAlcohol', 
-                                                                        optionsValue: 'valorAlcohol', Value: sAlcohol, valueAllowUnset: true, selectedOptions: selectedAlcohol, selected2:{}"></select>
+                                                                        <span><select id="alcohol" name="alcohol" style="width:40%;" data-bind="options: opcionesAlcohol, optionsText: 'tomaAlcohol', 
+                                                                        optionsValue: 'valorAlcohol', Value: sAlcohol, valueAllowUnset: true, selectedOptions: selectedAlcohol, selected2:{}"></select></span>
                                                                     </div>
                                                                     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                                                         <label for="fuma">fuma?</label><br>
-                                                                        <select id="fuma" style="width:40%;"  data-bind="options: opcionesFuma, optionsText: 'nombreFuma', 
-                                                                        optionsValue: 'valorFuma', Value: sFuma, valueAllowUnset: true, selectedOptions: selectedFuma, selected2:{}"></select>
+                                                                        <span><select id="fuma" name="fuma" style="width:40%;"  data-bind="options: opcionesFuma, optionsText: 'nombreFuma', 
+                                                                        optionsValue: 'valorFuma', Value: sFuma, valueAllowUnset: true, selectedOptions: selectedFuma, selected2:{}"></select></span>
                                                                     </div>
                                                             </div>
                                                             <div class="row">
@@ -277,6 +281,10 @@
 
     <!--KNOCKOUT-->
     <script type="text/javascript" src="js/libs/nokout/knocout-3.4.2.js"></script>
+
+    <!--MENSAJES-->
+    <script src="js/libs/message-master/codebase/message.js" type="text/javascript"></script>
+    
 
     <!--librerias generales-->
     <script src="js/comun/comun.ajax.js"></script>

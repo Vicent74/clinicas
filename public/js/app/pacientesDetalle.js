@@ -95,8 +95,8 @@ var apiPacientesDetalle = {
 
         self.opcionesSexo = ko.observableArray([
             {
-                'nombreSexo': ' ',
-                'valorSexo': ' '
+                'nombreSexo': '',
+                'valorSexo': ''
             }, 
             {
                 'nombreSexo': 'Hombre',
@@ -112,8 +112,8 @@ var apiPacientesDetalle = {
 
         self.opcionesAlcohol = ko.observableArray([
             {
-                'tomaAlcohol': ' ',
-                'valorAlcohol': ' '
+                'tomaAlcohol': '',
+                'valorAlcohol': ''
             }, 
             {
                 'tomaAlcohol': 'Si',
@@ -133,8 +133,8 @@ var apiPacientesDetalle = {
 
         self.opcionesFuma = ko.observableArray([
             {
-                'nombreFuma': ' ',
-                'valorFuma': ' '
+                'nombreFuma': '',
+                'valorFuma': ''
             }, 
             {
                 'nombreFuma': 'Si',
@@ -187,7 +187,7 @@ var apiPacientesDetalle = {
         if (vm.dni() == copiaDni) verbo = "PUT";
         apiComunAjax.llamadaGeneral(verbo, "api/pacientes", data, function(err, data){
             if (err) return;
-            alert('exito');
+            window.open('pacientesGeneral.html', '_self');
         });
     },
 
@@ -221,7 +221,9 @@ var apiPacientesDetalle = {
                 provincia: { required: true },
                 telefono: { required: true, telefono: true },
                 email: { email: true },
-                sexo: { required: true}
+                sexo: { required: true},
+                fuma:{ required: true },
+                alcohol: { required: true }
             },
             messages: {
                 dni:'formato DNI/NIE incorrecto',

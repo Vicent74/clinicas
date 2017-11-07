@@ -12,12 +12,10 @@ var apiEmpleadosGeneral = {
         $('#empleados-form').submit(function () { return false; });
         $('#btnNuevo').click(apiEmpleadosGeneral.nuevo);
         apiComunAjax.llamadaGeneral(verbo, url, datos, function(err, data){
-            if (err) {
-                apiComunNotificaciones.errorAjax(err);
-            }else{
-                apiEmpleadosGeneral.iniUsuariosTabla();
-                apiEmpleadosGeneral. cargaTablaempleados(data);
-            }
+            if (err) return;
+            apiEmpleadosGeneral.iniUsuariosTabla();
+            apiEmpleadosGeneral. cargaTablaempleados(data);
+            
         });//lamada ajax que devuelve los empleados existentes, un error si este se produce y si no carga los empleados en tabla
     },
 
@@ -65,7 +63,7 @@ var apiEmpleadosGeneral = {
 
     eliminar: function(id){
         apiComunAjax.llamadaGeneral("DELETE", "api/trabajadores/"+id, null, function(err, data){
-            if (err)    apiComunNotificaciones.errorAjax(err);
+            if (err)  return;
             location.reload(true);
         });
     }

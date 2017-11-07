@@ -12,12 +12,10 @@ var apiPacientesGeneral = {
         $('#pacientes-form').submit(function () { return false; });
         $('#btnNuevo').click(apiPacientesGeneral.nuevo);
         apiComunAjax.llamadaGeneral(verbo, url, datos, function(err, data){
-            if (err) {
-                apiComunNotificaciones.errorAjax(err);
-            }else{
-                apiPacientesGeneral.iniUsuariosTabla();
-                apiPacientesGeneral. cargaTablaPacientes(data);
-            }
+            if (err) return
+            apiPacientesGeneral.iniUsuariosTabla();
+            apiPacientesGeneral. cargaTablaPacientes(data);
+            
         });//lamada ajax que devuelve los pacientes existentes, un error si este se produce y si no carga los pacientes en tabla
     },
 
@@ -65,9 +63,8 @@ var apiPacientesGeneral = {
 
     eliminar: function(id){
         apiComunAjax.llamadaGeneral("DELETE", "api/pacientes/"+id, null, function(err, data){
-            if (err) apiComunNotificaciones.errorAjax(err);
+            if (err) return; 
             location.reload(true);
-
         });
     }
    

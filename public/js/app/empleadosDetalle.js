@@ -121,7 +121,7 @@ var apiEmpleadosDetalle = {
         if (vm.dni() == copiaDni) verbo = "PUT";
         apiComunAjax.llamadaGeneral(verbo, "api/trabajadores", data, function(err, data){
             if (err) return;
-            alert('exito');
+            window.open('empleadosGeneral.html', '_self');
         });
     },
 

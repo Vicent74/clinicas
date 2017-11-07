@@ -145,7 +145,7 @@ var apiConsultasDetalle = {
         if (id > 0) verbo = "PUT";
         apiComunAjax.llamadaGeneral(verbo, "api/consultas", data, function(err, data){
             if (err) return;
-            alert('exito');
+            window.open('consultasGeneral.html', '_self');
         });
     },
 
