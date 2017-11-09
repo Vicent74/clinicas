@@ -106,7 +106,7 @@ var apiClinicasDetalle = {
                 direccion: { required: true },
                 ciudad: { required: true },
                 provincia: { required: true },
-                telefono: { required: true, telefono: true },
+                telefono: { required: true, telefono: true }
             },
             messages: {
                 cif:'formato cif/NIE incorrecto',

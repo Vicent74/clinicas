@@ -103,6 +103,11 @@ section form{
 	padding: 5%;
 }
 
+.form-group input
+{
+    width: 50%
+}
+
 footer{
 	padding: 1%;
 	height: 65px;
