@@ -1,8 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var cors = require('cors');
-var serveIndex = require('serve-index');
-var fs = require('fs');
+
 
 var app = express();
 var jsonParser = bodyParser.json()
@@ -10,7 +9,7 @@ var jsonParser = bodyParser.json()
 app.use(bodyParser.urlencoded({
     extended: true
 }));
-app.use(bodyParser.json());
+app.use(jsonParser);
 
 // mounting routes
 var router = express.Router();
