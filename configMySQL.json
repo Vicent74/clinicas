@@ -1,7 +1,7 @@
 {
     "host": "localhost",
     "user": "root",
-    "password": "",
+    "password": "Pitu",
     "database": "interdental1.1",
     "port": 3306
 }
