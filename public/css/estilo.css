@@ -17,8 +17,8 @@ ul.ColVis_collection {
     padding: 8px 8px 4px;
     margin: 0;
     border: 1px solid #ccc;
-    border: 1px solid rgba(0,0,0,.4);
-    background-color: #193361;
+    border: 1px solid rgba(0,0,0,0);
+    background-color: #011A48;
     overflow: hidden;
     z-index: 2002;
     -webkit-border-radius: 5px;
@@ -26,11 +26,11 @@ ul.ColVis_collection {
     -ms-border-radius: 5px;
     -o-border-radius: 5px;
     border-radius: 5px;
-    -webkit-box-shadow: 3px 3px 5px rgba(0,0,0,.3);
-    -moz-box-shadow: 3px 3px 5px rgba(0,0,0,.3);
-    -ms-box-shadow: 3px 3px 5px rgba(0,0,0,.3);
-    -o-box-shadow: 3px 3px 5px rgba(0,0,0,.3);
-    box-shadow: 3px 3px 5px rgba(0,0,0,.3);
+    -webkit-box-shadow: 3px 3px 5px rgba(0,0,0,0);
+    -moz-box-shadow: 3px 3px 5px rgba(0,0,0,0);
+    -ms-box-shadow: 3px 3px 5px rgba(0,0,0,0);
+    -o-box-shadow: 3px 3px 5px rgba(0,0,0,0);
+    box-shadow: 3px 3px 5px rgba(0,0,0,0);
 }
 
 button.ColVis_Button, ul.ColVis_collection li {
@@ -38,7 +38,7 @@ button.ColVis_Button, ul.ColVis_collection li {
     float: left;
     margin-right: 3px;
     padding: 5px 8px;
-    border: 1px solid #999;
+    border: 1px solid #AC9F87;
     cursor: pointer;
     font-size: .88em;
     color: #000!important;
@@ -54,11 +54,11 @@ ul.ColVis_collection li {
     display: block;
     float: none;
     margin-bottom: 4px;
-    -webkit-box-shadow: 1px 1px 3px #999;
-    -moz-box-shadow: 1px 1px 3px #999;
-    -ms-box-shadow: 1px 1px 3px #999;
-    -o-box-shadow: 1px 1px 3px #999;
-    box-shadow: 1px 1px 3px #999;
+    -webkit-box-shadow: 1px 1px 3px #AC9F87;
+    -moz-box-shadow: 1px 1px 3px #AC9F87;
+    -ms-box-shadow: 1px 1px 3px #AC9F87;
+    -o-box-shadow: 1px 1px 3px #AC9F87;
+    box-shadow: 1px 1px 3px #AC9F87;
     text-align: left;
 }
 
@@ -118,13 +118,18 @@ footer{
 /*********************COLOR**************************/
 /*http://paletton.com/#uid=23I0u0kqjik6PlzgVksAKgnUbdC*/
 
-body {
-	background-color: #193361;
+body, .text-muted {
+    color: #000000;
+}
+
+.error
+{
+    color: red;
 }
 
 .navbar-inverse {
-	background-color: #193361;
-    border-color: #080808;
+	background-color: #011A48;
+    border-color: #000000;
 }
 
 .navbar-inverse .navbar-brand {
@@ -135,6 +140,73 @@ body {
     color: #FFFFFF;
 }
 
+.btn-default {
+    color: #000000;
+    background-color: #ffffff;
+    border-color: #AC9F87;
+}
+
+.btn-success {
+    color: #fff;
+    background-color: #193261;
+    border-color: #193261;
+}
+
+.btn-danger {
+    color: #fff;
+    background-color:#761c19;
+    border-color:#761c19;
+}
+
+.btn-warning {
+    color: #fff;
+    background-color: #AC9F87;
+    border-color: #AC9F87;
+}
+
+.btn-success.focus,.btn-success:focus{
+    color:#fff;
+    background-color:#6C4600;
+    border-color:#6C4600
+}
+.btn-success:hover{
+    color:#fff;
+    background-color:#6C4600;
+    border-color:#6C4600
+}
+
+.btn-danger.focus,.btn-danger:focus{
+    color:#fff;
+    background-color: red;
+    border-color: red;
+}
+.btn-danger:hover{
+    color:#fff;
+    background-color: red;
+    border-color: red;
+}
+
+.btn-warning.focus,.btn-warning:focus{
+    color:#fff;
+    background-color:#ec971f;
+    border-color:#ec971f
+}
+.btn-warning:hover{
+    color:#fff;
+    background-color:#ec971f;
+    border-color:#ec971f
+}
+
+input, .form-control, .select2-container--default .select2-selection--single {
+    color: #000000;
+    border: 1px solid #AC9F87;
+}
+
+legend{
+    color: #000000;
+    font-weight: bold;
+}
+
 
 .side-nav>li>ul>li>a {
     color: #FFFFFF;
@@ -143,11 +215,11 @@ body {
     color: #FFFFFF;
 }
 .side-nav {
-    background-color: #193361;
+    background-color: #011A48;
 }
 
 .panel-success {
-	border-color: #193361;
+	border-color: #011A48;
 	background: #AC9F87;
 	-webkit-box-shadow: 0 3px 3px;
 	-moz-box-shadow: 0 3px 3px;
@@ -156,5 +228,6 @@ body {
 
 footer{
 	color: #FFFFFF;
-	background: #193361;
+    background: #011A48;
+    border-color: #000000;
 }
