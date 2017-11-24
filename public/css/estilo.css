@@ -1,6 +1,26 @@
 
 /*---------------------TIPOGRAFÍA-----------------------------*/
 
+@font-face{
+    font-family: 'mono';
+    src: url('/fonts/Share_Tech_Mono/ShareTechMono-Regular.ttf');
+}
+
+@font-face{
+    font-family: 'montserrat';
+    src: url('/fonts/montserrat/Montserrat-Regular.ttf');
+}
+
+
+
+body{
+    font-family: mono;
+}
+            
+#page-wrapper{
+    font-family: montserrat;
+}
+
 
 /* contenido principal*/
 
@@ -231,3 +251,18 @@ footer{
     background: #011A48;
     border-color: #000000;
 }
+
+
+@media (max-width: 350px) {
+    h2 {
+      font-size: 25px;
+    }
+
+    
+  }
+
+  @media (max-width: 770px){
+    .form-control{
+        width: 200px;
+    }
+  }
