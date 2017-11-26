@@ -131,6 +131,41 @@ var apiEmpleadosDetalle = {
             return this.optional(element) || /^(([X-Z]{1})(\d{7})([A-Z]{1}))|((\d{8})([-]?)([A-Z]{1}))$/.test(value);
         });
 
+        $.validator.addMethod('letra', function(value, element){
+            
+                        var inicio = value.substr(0,1);
+                        if(!isNaN(inicio)){
+                            var numero = value.substr(0,value.length-1);
+                            var letr = value.substr(value.length-1,1);
+                            numero = numero % 23;
+                            var letra='TRWAGMYFPDXBNJZSQVHLCKET';
+                            letra=letra.substring(numero,numero+1);
+                
+                            return this.optional(element) || letra == letr.toUpperCase()
+                        }else {
+                            
+                             // Test NIE
+                            if ( /^[T]{1}/.test( value ) ) {
+                                return ( value[ 8 ] === /^[T]{1}[A-Z0-9]{8}$/.test( value ) );
+                            }
+               
+                            //XYZ
+                            if ( /^[XYZ]{1}/.test( value ) ) {
+                                return (
+                                value[ 8 ] === "TRWAGMYFPDXBNJZSQVHLCKE".charAt(
+                                     value.replace( 'X', '0' )
+                                    .replace( 'Y', '1' )
+                                    .replace( 'Z', '2' )
+                                    .substring( 0, 8 ) % 23
+                                )
+                                );
+                            }
+               
+                            return false;
+                        }
+                        
+        });
+
         $.validator.addMethod('telefono', function(value, element){
             return this.optional(element) || /^([9|6|7]{1})(\d{8})$/.test(value);
         });
@@ -147,7 +182,7 @@ var apiEmpleadosDetalle = {
             rules: {
                 cmbClinicas: { required: true },
                 fechaNacimiento: { required: true, date: true },
-                dni: { required: true, dni:true, minlength: 9, maxlength: 9 },
+                dni: { required: true, dni:true, letra: true, minlength: 9, maxlength: 9 },
                 nombre: { required: true },
                 ape1: { required: true },
                 direccion: { required: true },
