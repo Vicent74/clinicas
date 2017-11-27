@@ -13,7 +13,11 @@ var apiConsultasGeneral = {
         $('#btnNuevo').click(apiConsultasGeneral.nuevo);
         apiComunAjax.llamadaGeneral(verbo, url, datos, function(err, data){
             if (err) return;
-            if(data.length > 0) data[0].fecha = moment(data[0].fecha).format('DD-MM-YYYY hh:mm');
+            if(data.length > 0){
+                for(var i = 0; i<data.length; i++){
+                    data[i].fecha = moment(data[i].fecha).format('DD-MM-YYYY hh:mm');
+                }
+            } 
             apiConsultasGeneral.iniconsultasTabla();
             apiConsultasGeneral. cargaTablaConsultas(data);
             

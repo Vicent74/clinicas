@@ -30,7 +30,7 @@ var apiConsultasDetalle = {
         apiConsultasDetalle.loadComboEmpleados();
 
         $('#consultaDetalle-form').submit(function () { return false; });
-        $('#btnAceptar').click(apiConsultasDetalle.aceptar);
+        $('#btnAceptar').click( apiConsultasDetalle.recuperaCifPaciente);
         $('#btnSalir').click(apiConsultasDetalle.salir);
 
         if (id != 0){
@@ -72,8 +72,35 @@ var apiConsultasDetalle = {
     },
 
 
+
     loadComboEstado: function(consulta){
         $("#cmbEstados option[value="+ consulta.estado+"]").attr("selected",true).trigger('change');    
+    },
+
+    recuperaCifPaciente: function(){
+        if (vm.sPaciente()){
+            var url = '/api/pacientes/paciente/'+vm.sPaciente();
+            apiComunAjax.llamadaGeneral('GET', url, null, function(err, data){
+                if (err) return;
+                paciente = data[0].cifClinica;
+                apiConsultasDetalle.recuperaCifEmpleado();
+            });
+        }else{return;}
+       
+    },
+
+    recuperaCifEmpleado: function(){
+        if(vm.sEmpleado()){
+            var url = '/api/trabajadores/trabajadores/'+ vm.sEmpleado();
+            apiComunAjax.llamadaGeneral('GET', url, null, function(err, data){
+                if (err) return;
+                empleado = data[0].cifClinica;
+                setTimeout(function() {
+                    apiConsultasDetalle.aceptar();
+                }, 1000);
+                
+            });
+        }else{return;}
     },
 
     cargarDatosPagina: function(consulta){
@@ -130,6 +157,8 @@ var apiConsultasDetalle = {
     },
 
     aceptar: function(){
+       
+        apiConsultasDetalle. recuperaCifEmpleado();
         if (!apiConsultasDetalle.datosOK()) return;
         var data = {
             id: id,
@@ -150,13 +179,20 @@ var apiConsultasDetalle = {
     },
 
     datosOK: function () {
-       
+        $.validator.addMethod('cif', function(value, element){
+            return this.optional(element) || paciente == empleado;
+        });
+
         $('#consultaDetalle-form').validate({
             rules: {
                 cmbEstados: { required: true },
-                cmbPacientes: { required: true },
-                cmbEmpleados: { required: true },
+                cmbPacientes: { required: true, cif: true },
+                cmbEmpleados: { required: true, cif: true },
                 fechaConsulta: { required: true, date: true },
+            },
+            messages: {
+                cmbPacientes :'El empleado y el paciente tienen que pertenecer a la misma clinica',
+                cmbEmpleados :'El empleado y el paciente tienen que pertenecer a la misma clinica'
             },
             errorPlacement: function (error, element) {
                 error.insertAfter(element.parent());
