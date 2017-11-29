@@ -23,12 +23,5 @@ var apiComunAjax = {
            opciones.data = JSON.stringify(datos);
        }
        $.ajax(opciones);
-   },
-   
-   establecerClave: function (clave) {
-       $.ajaxSetup({
-           headers: { 'claveUsuario': clave }
-       });
-
    }
 }

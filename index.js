@@ -21,17 +21,6 @@ app.use(cors());
 app.use(express.static(__dirname + "/public"));
 
 
-router.use(function (req, res, next) {
-    var clave = req.header('claveUsuario');
-    if (!clave) return res.status(401).send('No se ha encontrado clave API');
-    usuariosDb.verificarClave(clave, function (err, verificada) {
-        if (err) return res.status(500).send(err.message);
-        if (!verificada) return res.status(401).send('No autorizado');
-        next();
-    });
-});
-
-
 // -- general GET (to know if the server is up and runnig)
 router.get('/', function (req, res) {
     res.json('CLINICAS / SERVER -- runnig');
