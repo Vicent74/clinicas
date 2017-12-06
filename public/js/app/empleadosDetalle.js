@@ -101,6 +101,7 @@ var apiEmpleadosDetalle = {
 
     aceptar: function(){
         if (! apiEmpleadosDetalle.datosOK()) return;
+        var fecha = moment(vm.fechaNacimiento(), "DD-MM-YYYY").format('YYYY-MM-DD');
         var data = {
             id: id,
             dni: vm.dni(),
@@ -114,7 +115,7 @@ var apiEmpleadosDetalle = {
             movil: vm.movil(),
             numeroColegiado: vm.numCol(),
             puesto: vm.puesto(),
-            fechaNacimiento: moment(vm.fechaNacimiento()).format('YYYY-MM-DD'),
+            fechaNacimiento: fecha,
             cifClinica: vm.sClinica()
         }
         var verbo = "POST"
@@ -126,7 +127,8 @@ var apiEmpleadosDetalle = {
     },
 
     datosOK: function () {
-       
+        $('#fechaNacimiento').val( moment(vm.fechaNacimiento(), "DD-MM-YYYY").format('YYYY-MM-DD'));
+        
         $.validator.addMethod('dni', function(value, element){
             return this.optional(element) || /^(([X-Z]{1})(\d{7})([A-Z]{1}))|((\d{8})([-]?)([A-Z]{1}))$/.test(value);
         });

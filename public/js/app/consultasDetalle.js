@@ -13,7 +13,7 @@ var apiConsultasDetalle = {
         $('#usuario').text(' '+usuario);
         $('#consultas > a > i').attr('class', 'fa fa-chevron-left');
         $("#fecha").datetimepicker({
-            format: 'dd-mm-yyyy hh:mm:ss',
+            format: 'dd-mm-yyyy hh:ii',
             language: 'es'
         });
         $('#cmbEstados').select2();
@@ -109,7 +109,7 @@ var apiConsultasDetalle = {
             vm.sintomas(consulta.sintomas);
             vm.diagnostico(consulta.diagnostico);
             vm.tratamiento(consulta.tratamiento);
-            vm.fechaConsulta(moment(consulta.fecha).format('DD-MM-YYYY hh:mm:ss'));
+            vm.fechaConsulta(moment(consulta.fecha).format('DD-MM-YYYY HH:mm:ss'));
             apiConsultasDetalle.loadComboEmpleados(consulta);
             apiConsultasDetalle.loadComboPacientes(consulta);
             apiConsultasDetalle.loadComboEstado(consulta);
@@ -160,12 +160,14 @@ var apiConsultasDetalle = {
        
         apiConsultasDetalle. recuperaCifEmpleado();
         if (!apiConsultasDetalle.datosOK()) return;
+
+        var fechaCon = moment(vm.fechaConsulta(), "DD-MM-YYYY hh:mm").format('YYYY-MM-DD hh:mm');
         var data = {
             id: id,
             estado: vm.sEstado(),
             dniPaciente: vm.sPaciente(),
             dniEspecialista: vm.sEmpleado(),
-            fecha: moment(vm.fechaConsulta()).format('YYYY-MM-DD hh:mm:ss'),
+            fecha: fechaCon,
             sintomas: vm.sintomas(),
             diagnostico: vm.diagnostico(),
             tratamiento: vm.tratamiento()
@@ -179,6 +181,9 @@ var apiConsultasDetalle = {
     },
 
     datosOK: function () {
+
+        $('#fechaConsulta').val( moment(vm.fechaConsulta(), "DD-MM-YYYY hh:mm").format('YYYY-MM-DD hh:mm'));
+
         $.validator.addMethod('cif', function(value, element){
             return this.optional(element) || paciente == empleado;
         });

@@ -166,6 +166,7 @@ var apiPacientesDetalle = {
 
     aceptar: function(){
         if (!apiPacientesDetalle.datosOK()) return;
+        var fecha = moment(vm.fechaNacimiento(), "DD-MM-YYYY").format('YYYY-MM-DD');
         var data = {
             id: id,
             dni: vm.dni(),
@@ -178,7 +179,7 @@ var apiPacientesDetalle = {
             telefono: vm.telefono(),
             movil: vm.movil(),
             sexo: vm.selectedSexos(),
-            fechaNacimiento: moment(vm.fechaNacimiento()).format('YYYY-MM-DD'),
+            fechaNacimiento: fecha,
             alcohol: vm.selectedAlcohol(),
             fuma: vm.selectedFuma(),
             cifClinica: vm.sClinica()
@@ -192,6 +193,8 @@ var apiPacientesDetalle = {
     },
 
     datosOK: function () {
+
+        $('#fechaNacimiento').val( moment(vm.fechaNacimiento(), "DD-MM-YYYY").format('YYYY-MM-DD'));
        
         $.validator.addMethod('dni', function(value, element){
             return this.optional(element) || /^(([X-Z]{1})(\d{7})([A-Z]{1}))|((\d{8})([-]?)([A-Z]{1}))$/.test(value);
